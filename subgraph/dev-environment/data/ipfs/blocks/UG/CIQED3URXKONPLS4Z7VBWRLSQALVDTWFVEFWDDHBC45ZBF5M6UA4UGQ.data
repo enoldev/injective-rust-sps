@@ -1,0 +1,21 @@
+
+áÙdataSources:
+  - kind: substreams
+    mapping:
+      apiVersion: 0.0.7
+      kind: substreams/graph-entities
+    name: my_project
+    network: injective-mainnet
+    source:
+      package:
+        file:
+          /: /ipfs/QmTHsx6E4GR1jBYa2sJmUMQERAegE1XwbizTnGVMG1T9N4
+        moduleName: graph_out
+description: my-project Substreams-powered-Subgraph
+indexerHints:
+  prune: auto
+schema:
+  file:
+    /: /ipfs/QmZid92SX1R2uENUAepj3NaPCboXPQgefBoHyX9VYwvUtm
+specVersion: 1.0.0
+Ù

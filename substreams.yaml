@@ -1,0 +1,34 @@
+specVersion: v0.1.0
+package:
+  name: my_project
+  version: v0.1.0
+
+imports:
+  injective: https://spkg.io/streamingfast/injective-common-v0.2.2.spkg
+  entity: https://github.com/streamingfast/substreams-entity-change/releases/download/v1.1.0/substreams-entity-change-v1.1.0.spkg
+
+
+binaries:
+  default:
+    type: wasm/rust-v1
+    file: target/wasm32-unknown-unknown/release/my_project_sql.wasm
+
+modules:
+  - name: map_events
+    use: injective:filtered_events
+    initialBlock: 50369621
+    
+  - name: graph_out
+    kind: map
+    initialBlock: 50369621
+    inputs:
+      - map: map_events
+    output:
+      type: proto:sf.substreams.entity.v1.EntityChanges
+    doc: |
+      `EntityChanges` emitted out for all the entities defined in the `schema.graphql` for the Uniswap v3 Subgraph.
+
+params:
+  map_events: type:wasm
+
+network: injective-mainnet

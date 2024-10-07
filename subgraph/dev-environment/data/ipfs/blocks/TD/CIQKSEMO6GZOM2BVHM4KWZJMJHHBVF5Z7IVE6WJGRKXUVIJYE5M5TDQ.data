@@ -1,0 +1,6 @@
+
+;5type Event @entity {
+    id: ID!
+    type: String!
+}
+5
